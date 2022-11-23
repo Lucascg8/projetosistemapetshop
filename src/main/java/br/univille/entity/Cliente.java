@@ -9,10 +9,10 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 500, nullable = false)
-    @NotBlack(message = "O campo nome não pode ser em branco")
+    @NotBlank(message = "O campo nome não pode ser em branco")
     private String nome;
     @Column(length = 14, nullable = false)
-    @NotBlack(message = "O campo CPF não pode ser em branco")
+    @NotBlank(message = "O campo CPF não pode ser em branco")
     private String CPF;
     @Column(length = 500)
     private String email;

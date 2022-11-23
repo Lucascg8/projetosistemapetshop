@@ -9,10 +9,10 @@ public class Pet{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 500, nullable = false)
-    @NotBlack(message = "O campo nome não pode ser em branco")
+    @NotBlank(message = "O campo nome não pode ser em branco")
     private String nome;
     @Column(length = 500, nullable = false)
-    @NotBlack(message = "O campo animal não pode ser em branco")
+    @NotBlank(message = "O campo animal não pode ser em branco")
     private String animal;
     @Column(length = 500)
     private float tamanho;

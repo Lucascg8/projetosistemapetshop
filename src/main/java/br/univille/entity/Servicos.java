@@ -9,12 +9,12 @@ public class Servicos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 1000, nullable = false)
-    @NotBlack(message = "O campo serviço não pode ser em branco")
+    @NotBlank(message = "O campo serviço não pode ser em branco")
     private String servico;
     @Column(length = 500, nullable = false)
-    @NotBlack(message = "O campo valor não pode ser em branco")
+    @NotBlank(message = "O campo valor não pode ser em branco")
     private float valor;
-    
+
     public long getId() {
         return id;
     }
