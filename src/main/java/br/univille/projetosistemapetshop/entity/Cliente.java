@@ -2,6 +2,9 @@ package br.univille.projetosistemapetshop.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Cliente {
@@ -9,10 +12,10 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 500, nullable = false)
-    @NotBlank(message = "O campo nome não pode ser em branco")
+    //@NotBlank(message = "O campo nome não pode ser em branco")
     private String nome;
     @Column(length = 14, nullable = false)
-    @NotBlank(message = "O campo CPF não pode ser em branco")
+    //@NotBlank(message = "O campo CPF não pode ser em branco")
     private String CPF;
     @Column(length = 500)
     private String email;
@@ -52,7 +55,4 @@ public class Cliente {
     }
 
     
-
 }
-
-
