@@ -17,7 +17,7 @@ public class Servicos {
     @Column(length = 500, nullable = false)
     //@NotBlank(message = "O campo valor não pode ser em branco")
     private float valor;
-    
+
     public long getId() {
         return id;
     }

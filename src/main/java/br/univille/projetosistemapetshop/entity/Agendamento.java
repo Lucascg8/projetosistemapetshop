@@ -11,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -39,11 +38,11 @@ public class Agendamento {
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
     private Pet agenda;
 
-    @ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
-    private Atendente listaAgendamentos;
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
+    private Atendente atendente;
 
-    @ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
-    private Veterinario listaAgenda;
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
+    private Veterinario veterinario;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "agendamento_id")
@@ -89,28 +88,28 @@ public class Agendamento {
         this.agenda = agenda;
     }
 
-    public Atendente getListaAgendamentos() {
-        return listaAgendamentos;
-    }
-
-    public void setListaAgendamentos(Atendente listaAgendamentos) {
-        this.listaAgendamentos = listaAgendamentos;
-    }
-
-    public Veterinario getListaAgenda() {
-        return listaAgenda;
-    }
-
-    public void setListaAgenda(Veterinario listaAgenda) {
-        this.listaAgenda = listaAgenda;
-    }
-
     public List<Servicos> getListaServicos() {
         return listaServicos;
     }
 
     public void setListaServicos(List<Servicos> listaServicos) {
         this.listaServicos = listaServicos;
+    }
+
+    public Veterinario getVeterinario() {
+        return veterinario;
+    }
+
+    public void setVeterinario(Veterinario veterinario) {
+        this.veterinario = veterinario;
+    }
+
+    public Atendente getAtendente() {
+        return atendente;
+    }
+
+    public void setAtendente(Atendente atendente) {
+        this.atendente = atendente;
     }
 
     
