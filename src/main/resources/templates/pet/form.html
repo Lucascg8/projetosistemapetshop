@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head th:include="layout :: head"></head>
+
+    <body>
+        <nav th:replace="layout :: menu"></nav>
+        <main class="container">
+            <form th:action="@{/pet/(form)}" 
+                method="POST" th:object="${pet}"> 
+
+                <input type="hidden" th:field="*{id}">
+                <div class="form-group">
+                    <label for="txtnome">Nome:</label>
+                    <input type="text" th:field="*{nome}"
+                        class="form-control" id="txtnome">
+                    <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class = "alert alert-danger"></p>
+                </div>
+
+                <div class="form-group">
+                    <label>Animal:</label>
+                    <select class="form-select" th:field="*{petAnimal}">
+                            <option th:each="umPet : ${listaPets}"
+                            th:text="${umPet.nome}" th:value="${umPet.id}"></option>
+                        <option value="1">Caninos</option>
+                        <option value="2">Felinos</option>
+                        <option value="3">Aves</option>
+                        <option value="4">Roedores</option>
+                        <option value="5">Aquáticos</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="txtsexo">Sexo:</label>
+                    <input type="text" th:field="*{sexo}"
+                        class="form-control" id="txtsexo">
+                        <p th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class = "alert alert-danger"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="txtDataNascimento">Data de Nascimento:</label>
+                    <input type="date" th:field="*{dataNascimento}"
+                        class="form-control" id="txtDataNascimento">
+                        <p th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}" class = "alert alert-danger"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="txttamanho">Tamanho:</label>
+                    <input type="text" th:field="*{tamanho}" class="form-control" id="txttamanho">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtpeso">Peso:</label>
+                    <input type="text" th:field="*{peso}" class="form-control" id="txtpeso">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </main>
+        <footer th:include="layout :: footer"></footer>
+    </body>
+</html>

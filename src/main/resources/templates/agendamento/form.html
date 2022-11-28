@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head th:include="layout :: head"></head>
+
+    <body>
+        <nav th:replace="layout :: menu"></nav>
+        <main class="container">
+            <form th:action="@{/agendamento/(form)}" 
+                method="POST" th:object="${agendamento}"> 
+
+                <input type="hidden" th:field="*{id}">
+                
+                <div class="form-group">
+                    <label for="txtData">Data do Agendamento:</label>
+                    <input type="date" th:field="*{data}"
+                        class="form-control" id="txtData">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtTime">Hora do Agendamento:</label>
+                    <input type="time" th:field="*{time}"
+                        class="form-control" id="txtTime">
+                </div>
+
+                <div class="form-group">
+                    <label>Pet:</label>
+                    <select class="form-select" th:field="*{agenda}">
+                            <option th:each="umPet : ${listaPets}"
+                            th:text="${umPet.nome}" th:value="${umPet.id}"></option>
+                    </select>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Serviços
+                        </h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Serviço</th>
+                                    <th>Valor</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="umServico, stat : *{listaColServicos}">
+                                    <td th:text="${umServico.servico?.nome}"></td>
+                                    <input type="hidden"
+                                        th:field="*{listaColServicos[__${stat.index}__].servico}">
+                                    
+                                        <td th:text="${umServico.valorServico}"></td>
+                                    <input type="hidden"
+                                        th:field="*{listaColServicos[__${stat.index}__].valorServico}">
+                                
+                                <td>
+                                    <button class="btn btn-danger" type="submit" name="removeitem" th:value="__${stat.index}__">Remover</button>
+                                </td>
+                                
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Novo agendamento
+                        </h5>
+                        <div class="form-group">
+                            <label for="cbservico">Serviço:</label>
+                            
+                            <select class="form-select" id="cbservico"
+                                th:field="${novoServico.servico}">
+                                <option th:each="umServico : ${listaServicos}"
+                                        th:value="${umServico.id}"
+                                        th:text="${umServico.nome}">
+                                </option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="txtValorServico">Valor do Serviço:</label>
+                            <input type="number" id="txtValorServico"
+                                class="form-control"
+                                th:field="${novoServico.valorServico}">
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="incservico">Adicionar Serviço</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" name="save">Enviar</button>
+            </form>
+        </main>
+        <footer th:include="layout :: footer"></footer>
+    </body>
+</html>
