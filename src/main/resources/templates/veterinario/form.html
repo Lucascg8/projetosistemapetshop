@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:include="layout :: head"></head>
+
+<body>
+        <nav th:replace="layout :: menu"></nav>
+    <main class="container">
+
+
+
+<a href="/pet/novo" class="btn btn-primary">Novo</a>
+
+<table class="table" id="tabpet">
+
+<thead>
+
+<tr>
+
+<th>Id</th>
+
+<th>Nome</th>
+
+<th>Animal</th>
+
+<th>Sexo</th>
+
+<th>Data de Nascimento</th>
+
+<th>Tamanho</th>
+
+<th>Peso</th>
+
+<th></th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+<tr th:each="umPet : ${listaPets}">
+
+<td th:text="${umPet.id}"></td>
+
+<td th:text="${umPet.nome}"></td>
+
+<td th:text="${umPet.petAnimal?.nome}"></td>
+
+<td th:text="${umPet.sexo}"></td>
+
+<td th:if="${umPet.dataNascimento}"
+
+    th:text="${#dates.format(umumPet.dataNascimento, 'dd/MM/yyyy')}"></td>
+
+<td th:unless="${umCliente.dataNascimento}">Não informada</td>
+
+<td th:text="${umPet.tamanho}"></td>
+
+<td th:text="${umPet.peso}"></td>
+
+<td>
+
+    <a th:href="@{'/pet/alterar/' + ${umPet.id}}" class="btn btn-warning">Alterar</a>
+
+    <button class="btn btn-danger js-delete" th:data-id="${umPet.id}">Excluir</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+    </main>
+        <div class="modal" tabindex="-1" id="modalveterinario">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+                <h5 class="modal-title">Excluir veterinario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+            <div class="modal-body">
+            <p>Confirma a exclusão do veterinario?</p>
+        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="btnnao" data-bs-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-primary" id="btnsim">Sim</button>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <footer th:include="layout :: footer"></footer>
+    <script th:src="@{/script.js}"></script>
+</body>
+
+</html>

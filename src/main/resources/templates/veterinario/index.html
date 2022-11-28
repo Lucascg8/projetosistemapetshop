@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head th:include="layout :: head"></head>
+
+    <body>
+        <nav th:replace="layout :: menu"></nav>
+    <main class="container">
+ 
+                <a href="/veterinario/novo" class="btn btn-primary">Novo</a>
+                <table class="table" id="tabpet">
+                <thead>
+                <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Usuário</th>
+                <th>Senha</th>
+                <th></th>
+                </tr>
+                </thead> 
+            <tbody>
+                <tr th:each="umVeterinario : ${listaVeterinarios}">
+                <td th:text="${umVeterinario.id}"></td>
+                <td th:text="${umVeterinario.nome}"></td>
+                <td th:text="${umVeterinario.usuario}"></td>
+                <td th:text="${umVeterinario.senha}"></td>
+                <td>
+                <a th:href="@{'/veterinario/alterar/' + ${umVeterinario.id}}" class="btn btn-warning">Alterar</a>
+                <button class="btn btn-danger js-delete" th:data-id="${umVeterinario.id}">Excluir</button>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <div class="modal" tabindex="-1" id="modalveterinario">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title">Excluir veterinario</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+    <p>Confirma a exclusão do veterinário?</p>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" id="btnnao" data-bs-dismiss="modal">Não</button>
+    <button type="button" class="btn btn-primary" id="btnsim">Sim</button>
+</div>
+</div>
+</div>
+ </div>
+
+ <footer th:include="layout :: footer"></footer>
+<script th:src="@{/script.js}"></script>
+</body>
+</html>
+
