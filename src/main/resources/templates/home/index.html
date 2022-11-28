@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!--
+    TAG LIB 
+    xmlns = xml Namespace
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head th:include="layout :: head"></head>
+    
+    <body>
+        <nav th:replace="layout :: menu"></nav>
+        <main class="container">
+            <p th:text="${valor}" class="btn btn-primary"></p>
+        </main>
+        <footer th:include="layout :: footer"></footer>
+    </body>
+</html>
