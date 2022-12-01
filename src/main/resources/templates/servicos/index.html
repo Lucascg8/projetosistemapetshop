@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
@@ -7,43 +8,39 @@
         <!--<nav th:replace="layout :: menu"></nav>-->
         <main class="container">
             <a href="home" class="btn btnBack">Retornar ao Menu</a></div>
-            <a href="/cliente/novo" class="btn btnNovo">Novo</a>
-            <table class="table" id="tablecliente">
-                <thead class="topocliente">
+            <a href="/servicos/novo" class="btn btnNovo">Novo</a>
+            <table class="table" id="tableservicos">
+                <thead class="toposervicos">
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
-                        <th>CPF</th>
-                        <th>E-mail</th>
-                        <th>Telefone</th>
+                        <th>Valor</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="umCliente : ${listaClientes}">
-                        <td th:text="${umCliente.id}"></td>
-                        <td th:text="${umCliente.nome}"></td>
-                        <td th:text="${umCliente.CPF}"></td>
-                        <td th:text="${umCliente.email}"></td>
-                        <td th:text="${umCliente.telefone}"></td>
+                    <tr th:each="umServico : ${listaServicos}">
+                        <td th:text="${umServico.id}"></td>
+                        <td th:text="${umServico.valor}"></td>
                         <td>
-                            <a th:href="@{'/cliente/alterar/' + ${umCliente.id}}" class="btn btn-warning">Alterar</a>
-                            <button class="btn btn-danger js-delete" th:data-id="${umCliente.id}">Excluir</button>
+                            <a th:href="@{'/servicos/alterar/' + ${umServico.id}}" class="btn btn-warning">Alterar</a>
+                            <button class="btn btn-danger js-delete" th:data-id="${umServico.id}">Excluir</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
+
         </main>
 
-        <div class="modal" tabindex="-1" id="modalcliente">
+        <div class="modal" tabindex="-1" id="modalservicos">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Excluir cliente</h5>
+                    <h5 class="modal-title">Excluir Serviço</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Confirma a exclusão do cliente?</p>
+                    <p>Confirma a exclusão do serviço?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" id="btnnao" data-bs-dismiss="modal">Não</button>
@@ -52,7 +49,8 @@
                 </div>
             </div>
         </div>
+
         <footer th:include="layout :: footer"></footer>
-        <script th:src="@{/script.js}"></script>
+        <script th:src="@{./js/script.js}"></script>
     </body>
 </html>

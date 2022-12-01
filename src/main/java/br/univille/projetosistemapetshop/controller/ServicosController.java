@@ -32,7 +32,6 @@ public class ServicosController {
 
     @PostMapping(params = "form")
     public ModelAndView save(Servicos servicos){
-        
         service.save(servicos);
         return new ModelAndView("redirect:/servicos");
     }
@@ -40,7 +39,7 @@ public class ServicosController {
     @GetMapping("/alterar/{id}")
     public ModelAndView alterar(@PathVariable("id") long id){
         var umServico = service.findById(id);
-        return new ModelAndView("produto/form","servico",umServico);
+        return new ModelAndView("servicos/form","servico",umServico);
     }
 
     @GetMapping("/delete/{id}")

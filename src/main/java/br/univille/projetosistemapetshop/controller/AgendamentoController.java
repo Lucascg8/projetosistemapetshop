@@ -2,10 +2,11 @@ package br.univille.projetosistemapetshop.controller;
 
 import java.util.HashMap;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,8 +36,7 @@ public class AgendamentoController {
     @GetMapping
     public ModelAndView index(){
         var listaAgendamentos = service.getAll();
-        return new ModelAndView("agendamento/index",
-                    "listaAgendamentos",listaAgendamentos);
+        return new ModelAndView("agendamento/index","listaAgendamentos",listaAgendamentos);
     }
 
     @GetMapping("/novo")
@@ -50,26 +50,19 @@ public class AgendamentoController {
         dados.put("listaPets", listaPets);
         dados.put("listaAtendentes", listaAtendentes);
         dados.put("listaVeterinarios", listaVeterinarios);
-        dados.put("novoServico", new Servicos());
+        dados.put("novaConsulta", new Servicos());
         return new ModelAndView("agendamento/form",dados);
     }
 
-
-
-    //
-    //@VALID MUDOU PRA @VALIDATED
-    //
-
     @PostMapping(params = "save")
-    public ModelAndView save(@Validated Agendamento agendamento,
-                            BindingResult bindingResult){
+    public ModelAndView save(@Valid Agendamento agendamento,BindingResult bindingResult){
         service.save(agendamento);
         return new ModelAndView("redirect:/agendamento");
     }
 
     @PostMapping(params = "incluiAgenda")
     public ModelAndView incluirAgenda(Agendamento agendamento, 
-                Servicos novaAgenda){agendamento.getListaServicos().add(novaAgenda);
+                Servicos novaConsulta){agendamento.getListaColServicos().add(novaConsulta);
 
         var listaAgenda = atendenteService.getAll();
         var listaAgendamentos = veterinarioService.getAll();
@@ -79,13 +72,13 @@ public class AgendamentoController {
         dados.put("listaAgenda", listaAgenda);
         dados.put("listaAgendamentos", listaAgendamentos);
         dados.put("agenda", agenda);
-        dados.put("novaAgenda", new Servicos());
+        dados.put("novaConsulta", new Servicos());
         return new ModelAndView("agendamento/form",dados);
     }
 
     @PostMapping(params = "removeAgenda")
     public ModelAndView removerItem(@RequestParam("removeAgenda")int index, Agendamento agendamento){
-    agendamento.getListaServicos().remove(index);   
+    agendamento.getListaColServicos().remove(index);   
 
         var listaAgenda = atendenteService.getAll();
         var listaAgendamentos = veterinarioService.getAll();
@@ -95,7 +88,7 @@ public class AgendamentoController {
         dados.put("listaAgenda", listaAgenda);
         dados.put("listaAgendamentos", listaAgendamentos);
         dados.put("agenda", agenda);
-        dados.put("novaAgenda", new Servicos());
+        dados.put("novaConsulta", new Servicos());
         return new ModelAndView("agendamento/form",dados);
     }
 

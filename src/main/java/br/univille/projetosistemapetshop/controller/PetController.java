@@ -2,10 +2,11 @@ package br.univille.projetosistemapetshop.controller;
 
 import java.util.HashMap;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,14 +51,8 @@ public class PetController {
         return new ModelAndView("pet/form",dados);
     }
     
-
-    //
-    //  De @Valid para @Validated
-    //
-    
     @PostMapping(params = "form")
-    public ModelAndView save(@Validated Pet pet,
-                            BindingResult bindingResult){
+    public ModelAndView save(@Valid Pet pet,BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
             var listaClientes = clienteService.getAll();

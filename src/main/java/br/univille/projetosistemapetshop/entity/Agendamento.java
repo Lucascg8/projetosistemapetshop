@@ -46,7 +46,7 @@ public class Agendamento {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "agendamento_id")
-    private List<Servicos> listaServicos = new ArrayList<>();
+    private List<Servicos> listaColServicos = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -88,12 +88,12 @@ public class Agendamento {
         this.agenda = agenda;
     }
 
-    public List<Servicos> getListaServicos() {
-        return listaServicos;
+    public List<Servicos> getListaColServicos() {
+        return listaColServicos;
     }
 
-    public void setListaServicos(List<Servicos> listaServicos) {
-        this.listaServicos = listaServicos;
+    public void setListaColServicos(List<Servicos> listaColServicos) {
+        this.listaColServicos = listaColServicos;
     }
 
     public Veterinario getVeterinario() {

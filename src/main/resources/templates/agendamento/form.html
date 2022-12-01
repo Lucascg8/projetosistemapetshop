@@ -66,14 +66,12 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">
-                            Novo agendamento
-                        </h5>
+                        <h5 class="card-title">Novo agendamento</h5>
                         <div class="form-group">
                             <label for="cbservico">Serviço:</label>
                             
                             <select class="form-select" id="cbservico"
-                                th:field="${novoServico.servico}">
+                                th:field="${novaConsulta.servico}">
                                 <option th:each="umServico : ${listaServicos}"
                                         th:value="${umServico.id}"
                                         th:text="${umServico.nome}">
@@ -82,16 +80,29 @@
                         </div>
                         
                         <div class="form-group">
+                            <label for="cbveterinario">Veterinário:</label>
+                            
+                            <select class="form-select" id="cbveterinario"
+                                th:field="${novaConsulta.veterinario}">
+                                <option th:each="umVeterinario : ${listaVeterinarios}"
+                                        th:value="${umVeterinario.id}"
+                                        th:text="${umVeterinario.nome}">
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label for="txtValorServico">Valor do Serviço:</label>
                             <input type="number" id="txtValorServico"
                                 class="form-control"
-                                th:field="${novoServico.valorServico}">
+                                th:field="${novaConsulta.valorServico}">
                         </div>
                         <button type="submit" class="btn btn-primary" name="incservico">Adicionar Serviço</button>
                     </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary" name="save">Enviar</button>
+                <a href="/agendamento" class="btn btn-danger">Cancelar</a>
             </form>
         </main>
         <footer th:include="layout :: footer"></footer>

@@ -5,24 +5,29 @@
       <head th:include="layout :: head"></head>
     
     <body>
-        <nav th:replace="layout :: menu"></nav>
+        <!--<nav th:replace="layout :: menu"></nav>-->
         <main class="container">
-            <a href="/servico/novo" class="btn btn-primary">Novo</a>
-            <table class="table">
-                <thead>
+            <a href="home" class="btn btnBack">Retornar ao Menu</a></div>
+            <a href="/agendamento/novo" class="btn btnNovo">Novo</a>
+            <table class="table" id="tableagendamento">
+                <thead class="topoagendamento">
                     <tr>
                         <th>Pet</th>
+                        <th>Serviços</th>
                         <th>Data do serviço</th>
                         <th>Hora do serviço</th>
+                        <th>Veterinário</th>
                         <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="umServico : ${listaServicos}">
                         <td th:text="${umServico.agenda?.nome}"></td>
+                        <td th:text="${umServico.listaAgenda?.nome}"></td>
                         <td th:text="${umServico.data}"></td>
                         <td th:text="${umServico.time}"></td>
-                        <td th:text="${#aggregates.sum(umaVenda.listaColServicos.![getValorFinal])}"></td>
+                        <td th:text="${umServico.veterinario?.nome}"></td>
+                        <td th:text="${#aggregates.sum(umServico.listaColServicos.![getValorFinal])}"></td>
                     </tr>
                 </tbody>
             </table>

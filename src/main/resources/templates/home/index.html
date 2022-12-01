@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<!--
-    TAG LIB 
-    xmlns = xml Namespace
--->
+
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-    <head th:include="layout :: head"></head>
-    
+    <head th:include="layout :: head">
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}">
+        <link rel = "stylesheet" href = "/css/style.css">
+    </head>
     <body>
-        <nav th:replace="layout :: menu"></nav>
-        <main class="container">
-            <p th:text="${valor}" class="btn btn-primary"></p>
+        <main class="home">
+            <header id="topoindex">
+                <h2 class="titulo">Sistema Pet Shop</h2>
+                <!--<nav th:replace="layout :: menu"></nav>-->
+                <nav class="links">
+                    <p>
+                        <a href="cliente" class="button"><strong>Clientes</strong></a></button>
+                        <a href="pet" class="button"><strong>Pets</strong></a></button>
+                        <a href="agendamento" class="button"><strong>Agendamentos</strong></a></button>
+                        <a href="servicos" class="button"><strong>Serviços</strong></a></button>
+                        <a href="atendente" class="button"><strong>Atendentes</strong></a></button>
+                        <a href="veterinario" class="button"><strong>Veterinários</strong></a></button>
+                    </p>
+                </nav>
+            </header>
         </main>
-        <footer th:include="layout :: footer"></footer>
     </body>
 </html>

@@ -5,26 +5,24 @@
     <head th:include="layout :: head"></head>
 
     <body>
-        <nav th:replace="layout :: menu"></nav>
+        <!--<nav th:replace="layout :: menu"></nav>-->
     <main class="container">
- 
-                <a href="/veterinario/novo" class="btn btn-primary">Novo</a>
-                <table class="table" id="tabpet">
-                <thead>
-                <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Usuário</th>
-                <th>Senha</th>
-                <th></th>
-                </tr>
-                </thead> 
+        <a href="home" class="btn btnBack">Retornar ao Menu</a></div>
+        <a href="/veterinario/novo" class="btn btnNovo">Novo</a>
+            <table class="table" id="tableveterinario">
+            <thead class="topoveterinario">
+            <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Usuário</th>
+            <th></th>
+            </tr>
+            </thead> 
             <tbody>
                 <tr th:each="umVeterinario : ${listaVeterinarios}">
                 <td th:text="${umVeterinario.id}"></td>
                 <td th:text="${umVeterinario.nome}"></td>
                 <td th:text="${umVeterinario.usuario}"></td>
-                <td th:text="${umVeterinario.senha}"></td>
                 <td>
                 <a th:href="@{'/veterinario/alterar/' + ${umVeterinario.id}}" class="btn btn-warning">Alterar</a>
                 <button class="btn btn-danger js-delete" th:data-id="${umVeterinario.id}">Excluir</button>

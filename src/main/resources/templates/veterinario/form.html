@@ -1,102 +1,39 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<head th:include="layout :: head"></head>
-
-<body>
+    <head th:include="layout :: head"></head>
+    <body>
         <nav th:replace="layout :: menu"></nav>
-    <main class="container">
+            <main class="container">
+                <form th:action="@{/veterinario/(form)}" 
+                    method="POST" th:object="${veterinario}"> 
 
+                    <input type="hidden" th:field="*{id}">
+                    <div class="form-group">
+                        <label for="txtnome">Nome:</label>
+                        <input type="text" th:field="*{nome}"
+                            class="form-control" id="txtnome">
+                        <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class = "alert alert-danger"></p>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="txtusuario">Usuário:</label>
+                        <input type="text" th:field="*{usuario}"
+                            class="form-control" id="txtusuario">
+                            <p th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}" class = "alert alert-danger"></p>
+                    </div>
 
-<a href="/pet/novo" class="btn btn-primary">Novo</a>
+                    <!-- SENHA COMO? -->
+                    <div class="form-group">
+                        <label for="txtsenha">Senha:</label>
+                        <input type="password" th:field="*{senha}" class="form-control" id="txtsenha">
+                    </div>
 
-<table class="table" id="tabpet">
-
-<thead>
-
-<tr>
-
-<th>Id</th>
-
-<th>Nome</th>
-
-<th>Animal</th>
-
-<th>Sexo</th>
-
-<th>Data de Nascimento</th>
-
-<th>Tamanho</th>
-
-<th>Peso</th>
-
-<th></th>
-
-</tr>
-
-</thead>
-
-
-<tbody>
-
-<tr th:each="umPet : ${listaPets}">
-
-<td th:text="${umPet.id}"></td>
-
-<td th:text="${umPet.nome}"></td>
-
-<td th:text="${umPet.petAnimal?.nome}"></td>
-
-<td th:text="${umPet.sexo}"></td>
-
-<td th:if="${umPet.dataNascimento}"
-
-    th:text="${#dates.format(umumPet.dataNascimento, 'dd/MM/yyyy')}"></td>
-
-<td th:unless="${umCliente.dataNascimento}">Não informada</td>
-
-<td th:text="${umPet.tamanho}"></td>
-
-<td th:text="${umPet.peso}"></td>
-
-<td>
-
-    <a th:href="@{'/pet/alterar/' + ${umPet.id}}" class="btn btn-warning">Alterar</a>
-
-    <button class="btn btn-danger js-delete" th:data-id="${umPet.id}">Excluir</button>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-    </main>
-        <div class="modal" tabindex="-1" id="modalveterinario">
-        <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-                <h5 class="modal-title">Excluir veterinario</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-            <div class="modal-body">
-            <p>Confirma a exclusão do veterinario?</p>
-        </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="btnnao" data-bs-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-primary" id="btnsim">Sim</button>
-        </div>
-        </div>
-        </div>
-        </div>
-
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <a href="/veterinario" class="btn btn-danger">Cancelar</a>
+                </form>
+            </main>
         <footer th:include="layout :: footer"></footer>
-    <script th:src="@{/script.js}"></script>
-</body>
-
+    </body>
 </html>

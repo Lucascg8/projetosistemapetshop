@@ -5,16 +5,17 @@
     <head th:include="layout :: head"></head>
 
     <body>
-        <nav th:replace="layout :: menu"></nav>
+        <!--<nav th:replace="layout :: menu"></nav>-->
         <main class="container">
-            
-            <a href="/pet/novo" class="btn btn-primary">Novo</a>
-            <table class="table" id="tabpet">
-                <thead>
+            <a href="home" class="btn btnBack">Retornar ao Menu</a></div>
+            <a href="/pet/novo" class="btn btnNovo">Novo</a>
+            <table class="table" id="tablepet">
+                <thead class="topopet">
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
-                        <th>Animal</th>
+                        <th>Tutor</th>
+                        <th>Tipo</th>
                         <th>Sexo</th>
                         <th>Data de Nascimento</th>
                         <th>Tamanho</th>
@@ -26,10 +27,11 @@
                     <tr th:each="umPet : ${listaPets}">
                         <td th:text="${umPet.id}"></td>
                         <td th:text="${umPet.nome}"></td>
-                        <td th:text="${umPet.petAnimal?.nome}"></td>
+                        <td th:text="${umPet.tutor?.nome}"></td>
+                        <td th:text="${umPet.animal}"></td>
                         <td th:text="${umPet.sexo}"></td>
                         <td th:if="${umPet.dataNascimento}"
-                            th:text="${#dates.format(umumPet.dataNascimento, 'dd/MM/yyyy')}"></td>
+                            th:text="${#dates.format(umPet.dataNascimento, 'dd/MM/yyyy')}"></td>
                         <td th:unless="${umPet.dataNascimento}">Não informada</td>
                         <td th:text="${umPet.tamanho}"></td>
                         <td th:text="${umPet.peso}"></td>

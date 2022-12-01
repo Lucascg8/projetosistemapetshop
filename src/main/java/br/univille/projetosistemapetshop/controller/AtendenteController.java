@@ -1,9 +1,10 @@
 package br.univille.projetosistemapetshop.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,14 +38,8 @@ public class AtendenteController {
         return new ModelAndView("atendente/form","atendente",umAtendente);
     }
 
-
-    //
-    //  De @Valid para @Validated
-    //
-
     @PostMapping(params = "form")
-    public ModelAndView save(@Validated Atendente atendente,
-                            BindingResult bindingResult){
+    public ModelAndView save(@Valid Atendente atendente,BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
             return new ModelAndView("atendente/form","atendente",atendente);

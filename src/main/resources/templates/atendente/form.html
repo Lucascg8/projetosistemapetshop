@@ -28,10 +28,11 @@
                 <!-- SENHA COMO? -->
                 <div class="form-group">
                     <label for="txtsenha">Senha:</label>
-                    <input type="text" th:field="*{senha}" class="form-control" id="txtsenha">
+                    <input type="password" th:field="*{senha}" class="form-control" id="txtsenha">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Enviar</button>
+                <a href="/atendente" class="btn btn-danger">Cancelar</a>
             </form>
         </main>
         <footer th:include="layout :: footer"></footer>

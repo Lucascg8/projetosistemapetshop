@@ -4,18 +4,17 @@
 
     <head th:include="layout :: head"></head>
 
-    <body
-        <nav th:replace="layout :: menu"></nav>
+    <body>
+        <!--<nav th:replace="layout :: menu"></nav>-->
         <main class="container">
-            
-            <a href="/atendente/novo" class="btn btn-primary">Novo</a>
-            <table class="table" id="tabpet">
-                <thead>
+            <a href="home" class="btn btnBack">Retornar ao Menu</a></div>
+            <a href="/atendente/novo" class="btn btnNovo">Novo</a>
+            <table class="table" id="tableatendente">
+                <thead class="topoatendente">
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
                         <th>Usuário</th>
-                        <th>Senha</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -24,7 +23,6 @@
                         <td th:text="${umAtendente.id}"></td>
                         <td th:text="${umAtendente.nome}"></td>
                         <td th:text="${umAtendente.usuario}"></td>
-                        <td th:text="${umAtendente.senha}"></td>
                         <td>
                             <a th:href="@{'/atendente/alterar/' + ${umAtendente.id}}" class="btn btn-warning">Alterar</a>
                             <button class="btn btn-danger js-delete" th:data-id="${umAtendente.id}">Excluir</button>

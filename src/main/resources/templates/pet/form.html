@@ -19,23 +19,34 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Animal:</label>
-                    <select class="form-select" th:field="*{petAnimal}">
-                            <option th:each="umPet : ${listaPets}"
-                            th:text="${umPet.nome}" th:value="${umPet.id}"></option>
-                        <option value="1">Caninos</option>
-                        <option value="2">Felinos</option>
-                        <option value="3">Aves</option>
-                        <option value="4">Roedores</option>
-                        <option value="5">Aquáticos</option>
+                    <label>Tutor(a):</label>
+                    <select class="form-select" th:field="*{tutor}">
+                        <option th:each="umCliente : ${listaClientes}"
+                        th:text="${umCliente?.nome}" th:value="${umCliente.id}"></option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="txtsexo">Sexo:</label>
-                    <input type="text" th:field="*{sexo}"
-                        class="form-control" id="txtsexo">
-                        <p th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class = "alert alert-danger"></p>
+                    <label>Tipo:</label>
+                    <select class="form-select" th:field="*{animal}">
+                        <option th:each="umPet : ${listaPets}"
+                        th:text="${umPet.nome}" th:value="${umPet.id}"></option>
+                        <option value="Canino">Canino</option>
+                        <option value="Felino">Felino</option>
+                        <option value="Ave">Ave</option>
+                        <option value="Roedor">Roedor</option>
+                        <option value="Aquático">Aquático</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Sexo:</label>
+                    <select class="form-select" th:field="*{sexo}">
+                        <option value="Macho">Macho</option>
+                        <option value="Fêmea">Fêmea</option>
+                    </select>
+                </div>
+                
                 </div>
 
                 <div class="form-group">
@@ -56,6 +67,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Enviar</button>
+                <a href="/pet" class="btn btn-danger">Cancelar</a>
             </form>
         </main>
         <footer th:include="layout :: footer"></footer>

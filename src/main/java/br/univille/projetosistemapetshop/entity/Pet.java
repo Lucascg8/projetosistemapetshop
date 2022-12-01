@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,13 +21,11 @@ public class Pet{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 500, nullable = false)
-    //@NotBlank(message = "O campo nome não pode ser em branco")
+    @NotBlank(message = "O campo nome não pode ser em branco")
     private String nome;
     @Column(length = 500, nullable = false)
-    //@NotBlank(message = "O campo nome não pode ser em branco")
+    @NotBlank(message = "O campo sexo não pode ser em branco")
     private String sexo;
-    @Column(length = 500, nullable = false)
-    //@NotBlank(message = "O campo animal não pode ser em branco")
     @Temporal(value = TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataNascimento;
@@ -36,9 +35,9 @@ public class Pet{
     @Column(length = 500)
     private float peso;
 
+    
     @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH})
-    private Cliente dono;
-
+    private Cliente tutor;
 
     public long getId() {
         return id;
@@ -70,11 +69,11 @@ public class Pet{
     public void setPeso(float peso) {
         this.peso = peso;
     }
-    public Cliente getDono() {
-        return dono;
+    public Cliente getTutor() {
+        return tutor;
     }
-    public void setDono(Cliente dono) {
-        this.dono = dono;
+    public void setTutor(Cliente tutor) {
+        this.tutor = tutor;
     }
     public String getSexo() {
         return sexo;
@@ -88,6 +87,5 @@ public class Pet{
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-
     
 }
