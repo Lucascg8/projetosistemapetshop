@@ -15,7 +15,7 @@ public class AgendamentoServiceImpl implements AgendamentoService{
     private AgendamentoRepository repository;
     @Override
     public List<Agendamento> getAll() {
-        return repository.findAll();
+        return repository.findAllByOrderByDataAscTimeAsc();
     }
 
     @Override
@@ -30,5 +30,16 @@ public class AgendamentoServiceImpl implements AgendamentoService{
             return result.get();
         }
        return new Agendamento();
+    }
+    
+    @Override
+    public void delete(long id) {
+        repository.deleteById(id);
+    }
+
+    @Override
+    public List<Agendamento> findByNome(String nome) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

@@ -1,10 +1,12 @@
 package br.univille.projetosistemapetshop.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -18,6 +20,9 @@ public class Servicos {
     @Column(length = 500, nullable = false)
     private float valor;
 
+    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH})
+    private Veterinario veterinario;
+    
     public long getId() {
         return id;
     }
@@ -36,6 +41,10 @@ public class Servicos {
     public void setValor(float valor) {
         this.valor = valor;
     }
-
-    
+    public Veterinario getVeterinario() {
+        return veterinario;
+    }
+    public void setVeterinario(Veterinario veterinario) {
+        this.veterinario = veterinario;
+    }
 }

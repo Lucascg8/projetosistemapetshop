@@ -48,5 +48,4 @@ public class ServicosController {
         service.delete(id);
         return new ModelAndView("redirect:/servicos");
     }
-
 }

@@ -43,5 +43,4 @@ public class PetServiceImpl implements PetService{
     public List<Pet> findByNome(String nome) {
         return repositorio.findByNomeIgnoreCaseContaining(nome);
     }
-   
 }

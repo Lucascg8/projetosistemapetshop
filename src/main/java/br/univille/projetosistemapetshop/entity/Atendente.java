@@ -46,6 +46,4 @@ public class Atendente {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    
 }

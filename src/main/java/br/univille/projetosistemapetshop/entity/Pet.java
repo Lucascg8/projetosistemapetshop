@@ -35,7 +35,6 @@ public class Pet{
     @Column(length = 500)
     private float peso;
 
-    
     @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH})
     private Cliente tutor;
 
@@ -87,5 +86,4 @@ public class Pet{
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-    
 }

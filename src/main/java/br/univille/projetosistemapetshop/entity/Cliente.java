@@ -24,7 +24,6 @@ public class Cliente {
     @NotBlank(message = "O campo telefone não pode ser em branco")
     private String telefone;
 
-    
     public long getId() {
         return id;
     }
@@ -55,6 +54,4 @@ public class Cliente {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
-    
 }

@@ -9,7 +9,6 @@ import br.univille.projetosistemapetshop.entity.Atendente;
 import br.univille.projetosistemapetshop.repository.AtendenteRepository;
 import br.univille.projetosistemapetshop.service.AtendenteService;
 
-
 @Service
 public class AtendenteServiceImpl implements AtendenteService{
     

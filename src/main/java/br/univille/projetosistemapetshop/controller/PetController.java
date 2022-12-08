@@ -32,6 +32,12 @@ public class PetController {
         return new ModelAndView("pet/index","listaPets",listaPets);
     }
 
+    @GetMapping("/consulta")
+    public ModelAndView indexConsulta(){
+        var listaPets = service.getAll();
+        return new ModelAndView("pet/index2","listaPets",listaPets);
+    }
+
     @GetMapping("/novo")
     public ModelAndView novo(){
         var pet = new Pet();

@@ -4,9 +4,9 @@
     <head th:include="layout :: head"></head>
 
     <body>
-        <!--<nav th:replace="layout :: menu"></nav>-->
         <main class="container">
-            <a href="home" class="btn btnBack">Retornar ao Menu</a></div>
+            <a href="/home/souatendente" class="btn btnBack">Retornar ao Menu</a></div>
+            <!--<a onclick="window.history.go(-1); return false;" class="btn btnBack">Retornar ao Menu</a></div>-->
             <a href="/cliente/novo" class="btn btnNovo">Novo</a>
             <table class="table" id="tablecliente">
                 <thead class="topocliente">
@@ -53,6 +53,6 @@
             </div>
         </div>
         <footer th:include="layout :: footer"></footer>
-        <script th:src="@{/script.js}"></script>
+        <script th:src="@{/js/script.js}"></script>
     </body>
 </html>

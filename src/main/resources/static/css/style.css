@@ -51,6 +51,26 @@ body{
     word-spacing: 20px;
     margin: 30px;
 }
+.links2{
+    font-size: 30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    word-spacing: 20px;
+    margin: 30px;
+}
+.links3{
+    font-size: 30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    word-spacing: 20px;
+    margin: 30px;
+}
+
+.descricao{
+    font-size: 25px;
+    margin: 40px;
+    text-align: center;
+}
 
 .button{
   background-color: rgb(230, 126, 57);

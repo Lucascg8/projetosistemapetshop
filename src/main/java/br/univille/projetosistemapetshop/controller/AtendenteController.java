@@ -32,6 +32,7 @@ public class AtendenteController {
         var atendente = new Atendente();
         return new ModelAndView("atendente/form","atendente",atendente);
     }
+    
     @GetMapping("/alterar/{id}")
     public ModelAndView alterar(@PathVariable("id") long id){
         var umAtendente = service.findById(id);
@@ -40,7 +41,6 @@ public class AtendenteController {
 
     @PostMapping(params = "form")
     public ModelAndView save(@Valid Atendente atendente,BindingResult bindingResult){
-
         if(bindingResult.hasErrors()){
             return new ModelAndView("atendente/form","atendente",atendente);
         }
@@ -50,7 +50,6 @@ public class AtendenteController {
     
     @GetMapping("/delete/{id}")
     public ModelAndView delete(@PathVariable("id") long id){
-
         service.delete(id);
         return new ModelAndView("redirect:/atendente");
     }

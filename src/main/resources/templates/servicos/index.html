@@ -5,9 +5,9 @@
     <head th:include="layout :: head"></head>
 
     <body>
-        <!--<nav th:replace="layout :: menu"></nav>-->
         <main class="container">
-            <a href="home" class="btn btnBack">Retornar ao Menu</a></div>
+            <a href="/home/souatendente" class="btn btnBack">Retornar ao Menu</a></div>
+            <!--<a onclick="window.history.go(-1); return false;" class="btn btnBack">Retornar ao Menu</a></div>-->
             <a href="/servicos/novo" class="btn btnNovo">Novo</a>
             <table class="table" id="tableservicos">
                 <thead class="toposervicos">
@@ -21,6 +21,7 @@
                 <tbody>
                     <tr th:each="umServico : ${listaServicos}">
                         <td th:text="${umServico.id}"></td>
+                        <td th:text="${umServico.servico}"></td>
                         <td th:text="${umServico.valor}"></td>
                         <td>
                             <a th:href="@{'/servicos/alterar/' + ${umServico.id}}" class="btn btn-warning">Alterar</a>
@@ -29,10 +30,9 @@
                     </tr>
                 </tbody>
             </table>
-
         </main>
 
-        <div class="modal" tabindex="-1" id="modalservicos">
+        <div class="modal" tabindex="-1" id="modalservico">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -51,6 +51,6 @@
         </div>
 
         <footer th:include="layout :: footer"></footer>
-        <script th:src="@{./js/script.js}"></script>
+        <script th:src="@{/js/script.js}"></script>
     </body>
 </html>

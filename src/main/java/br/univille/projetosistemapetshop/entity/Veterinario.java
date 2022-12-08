@@ -45,6 +45,4 @@ public class Veterinario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    
 }

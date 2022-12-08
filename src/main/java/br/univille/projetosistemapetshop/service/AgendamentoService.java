@@ -6,4 +6,6 @@ public interface AgendamentoService {
     List<Agendamento> getAll();
     void save(Agendamento agendamento);
     Agendamento findById(long id);
+    void delete(long id);
+    List<Agendamento> findByNome(String nome);
 }

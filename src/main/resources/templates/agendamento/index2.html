@@ -6,9 +6,8 @@
     
     <body>
         <main class="container">
-            <a href="/home/souatendente" class="btn btnBack">Retornar ao Menu</a></div>
+            <a href="/home/souveterinario" class="btn btnBack">Retornar ao Menu</a></div>
             <!--<a onclick="window.history.go(-1); return false;" class="btn btnBack">Retornar ao Menu</a></div>-->
-            <a href="/agendamento/novo" class="btn btnNovo">Novo</a>
             <table class="table" id="tableagendamento">
                 <thead class="topoagendamento">
                     <tr>
@@ -32,11 +31,6 @@
                         <td th:text="${umAgendamento.time}"></td>
                         <td th:text="${umAgendamento.veterinario?.nome}"></td>
                         <td th:text="${#aggregates.sum(umAgendamento.listaColServicos.![getValor])}"></td>
-
-                        <td>
-                            <a th:href="@{'/agendamento/alterar/' + ${umAgendamento.id}}" class="btn btn-warning">Alterar</a>
-                            <button class="btn btn-danger js-delete" th:data-id="${umAgendamento.id}">Excluir</button>
-                        </td>
                     </tr>
                 </tbody>
             </table>

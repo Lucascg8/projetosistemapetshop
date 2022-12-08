@@ -6,9 +6,8 @@
 
     <body>
         <main class="container">
-            <a href="/home/souatendente" class="btn btnBack">Retornar ao Menu</a></div>
+            <a href="/home/souveterinario" class="btn btnBack">Retornar ao Menu</a></div>
             <!--<a onclick="window.history.go(-1); return false;" class="btn btnBack">Retornar ao Menu</a></div>-->
-            <a href="/pet/novo" class="btn btnNovo">Novo</a>
             <table class="table" id="tablepet">
                 <thead class="topopet">
                     <tr>
@@ -35,10 +34,6 @@
                         <td th:unless="${umPet.dataNascimento}">Não informada</td>
                         <td th:text="${umPet.tamanho}"></td>
                         <td th:text="${umPet.peso}"></td>
-                        <td>
-                            <a th:href="@{'/pet/alterar/' + ${umPet.id}}" class="btn btn-warning">Alterar</a>
-                            <button class="btn btn-danger js-delete" th:data-id="${umPet.id}">Excluir</button>
-                        </td>
                     </tr>
                 </tbody>
             </table>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head th:include="layout :: head">
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}">
+        <link rel = "stylesheet" href = "/css/style.css">
+    </head>
+    <body>
+        <main class="home">
+            <header id="topoindex2">
+                <h2 class="titulo">Sistema Hospital Veterinário - Atendentes</h2>
+                
+                <nav class="links2">
+                    <p>
+                        <a href="/cliente" class="button"><strong>Clientes</strong></a></button>
+                        <a href="/pet" class="button"><strong>Pets</strong></a></button>
+                        <a href="/agendamento" class="button"><strong>Agendamentos</strong></a></button>
+                        <a href="/atendente" class="button"><strong>Atendentes</strong></a></button>
+                        <a href="/veterinario" class="button"><strong>Veterinários</strong></a></button>
+                    </p>
+                </nav>
+            </header>
+        </main>
+    </body>
+</html>

@@ -7,5 +7,4 @@ import br.univille.projetosistemapetshop.entity.Servicos;
 
 @Repository
 public interface ServicosRepository extends JpaRepository<Servicos,Long>{
-    
 }

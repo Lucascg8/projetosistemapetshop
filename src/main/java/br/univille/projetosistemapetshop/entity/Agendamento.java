@@ -24,7 +24,7 @@ public class Agendamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(value = TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data;
 
@@ -111,6 +111,4 @@ public class Agendamento {
     public void setAtendente(Atendente atendente) {
         this.atendente = atendente;
     }
-
-    
 }
