@@ -2,7 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-    <head th:include="layout :: head"></head>
+    <head th:include="layout :: head">
+        <figure class="logo">
+            <img src="/img/TAtendentes.png"
+            alt="Título Atendente">
+        </figure>
+    </head>
 
     <body>
         <main class="container">
@@ -49,8 +54,8 @@
                 </div>
             </div>
         </div>
-
+        
         <footer th:include="layout :: footer"></footer>
-        <script th:src="@{/script.js}"></script>
+        <script th:src="@{/js/scriptAtendente.js}"></script>
     </body>
 </html>

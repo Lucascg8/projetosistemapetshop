@@ -2,7 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     
-    <head th:include="layout :: head"></head>
+    <head th:include="layout :: head">
+        <figure class="logo">
+            <img src="/img/TAgendamentos.png"
+            alt="Título Agendamento">
+        </figure>
+    </head>
     
     <body>
         <main class="container">
@@ -18,6 +23,7 @@
                         <th>Hora do serviço</th>
                         <th>Veterinário</th>
                         <th>Total</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,5 +67,6 @@
         </div>
 
         <footer th:include="layout :: footer"></footer>
+        <script th:src="@{/js/scriptAgendamento.js}"></script>
     </body>
 </html>

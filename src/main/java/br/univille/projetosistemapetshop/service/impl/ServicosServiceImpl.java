@@ -10,7 +10,7 @@ import br.univille.projetosistemapetshop.repository.ServicosRepository;
 import br.univille.projetosistemapetshop.service.ServicosService;
 
 @Service
-public class ServicosServiceImpl  implements ServicosService{
+public class ServicosServiceImpl implements ServicosService{
     
     @Autowired
     private ServicosRepository repositorio;
@@ -37,5 +37,11 @@ public class ServicosServiceImpl  implements ServicosService{
     @Override
     public void delete(long id) {
         repositorio.deleteById(id);
+    }
+
+    @Override
+    public List<Servicos> findByNome(String nome) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

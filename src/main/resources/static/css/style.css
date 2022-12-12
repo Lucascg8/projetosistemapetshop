@@ -12,8 +12,6 @@ body{
 }
 
 .retornomenu{
-    /*background-color: rgb(216, 114, 46);
-    border-radius: 15px;*/
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -44,6 +42,10 @@ body{
     text-align: justify;
 }
 
+.logo{
+    text-align: center;
+}
+
 .links{
     font-size: 30px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -67,8 +69,13 @@ body{
 }
 
 .descricao{
-    font-size: 25px;
+    font-size: 30px;
     margin: 40px;
+    text-align: center;
+    color: rgb(66, 25, 0);
+}
+
+.pets{
     text-align: center;
 }
 
@@ -119,10 +126,10 @@ a:hover{
 }
 
 .container{
-    background-color: rgb(255, 255, 255);
+    background-color:  rgba(255, 255, 255, 0.55);
     margin: auto;
     text-align: justify;
-    padding: 20px;
+    padding: 10px 20px;
     font-size: 17px;
 }
 
@@ -151,11 +158,18 @@ a:hover{
     color: rgb(66, 25, 0);
 }
 
-/*
-.rodape{
-    font-size: 20px;
-    text-align: center;
-    padding: 25px;
+.retorno{
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    padding: 8px 15px;
     text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin: 10px;
+    border: solid 2px rgb(66, 25, 0);
+    border-radius: 15px;
 }
-*/
+
+.rodape{
+    text-align: center;
+}

@@ -88,7 +88,7 @@ public class AgendamentoController {
 
     @PostMapping(params = "removeAgenda")
     public ModelAndView removerItem(@RequestParam("removeAgenda")int index, Agendamento agendamento){
-    agendamento.getListaColServicos().remove(index);   
+        agendamento.getListaColServicos().remove(index);   
         var listaAgenda = atendenteService.getAll();
         var listaAgendamentos = veterinarioService.getAll();
         var agenda = petService.getAll();
@@ -109,13 +109,17 @@ public class AgendamentoController {
     public ModelAndView alterar(@PathVariable("id") long id){
         var umAgendamento = service.findById(id);
         var listaPets = petService.getAll();
+        var listaAgenda = atendenteService.getAll();
+        var agenda = petService.getAll();
         var listaAtendentes = atendenteService.getAll();
         var listaVeterinarios = veterinarioService.getAll();
         HashMap<String,Object> dados = new HashMap<>();
         dados.put("agendamento", umAgendamento);
         dados.put("listaPets", listaPets);
+        dados.put("listaAgenda", listaAgenda);
         dados.put("listaAtendentes", listaAtendentes);
         dados.put("listaVeterinarios", listaVeterinarios);
+        dados.put("agenda", agenda);
         dados.put("novoServico", new Servicos());
         return new ModelAndView("agendamento/form",dados);
     }

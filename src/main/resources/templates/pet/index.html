@@ -2,10 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-    <head th:include="layout :: head"></head>
+    <head th:include="layout :: head">
+        <figure class="logo">
+            <img src="/img/TPets.png"
+            alt="Título Pets">
+        </figure>
+    </head>
 
     <body>
         <main class="container">
+            
             <a href="/home/souatendente" class="btn btnBack">Retornar ao Menu</a></div>
             <!--<a onclick="window.history.go(-1); return false;" class="btn btnBack">Retornar ao Menu</a></div>-->
             <a href="/pet/novo" class="btn btnNovo">Novo</a>
@@ -62,6 +68,6 @@
             </div>
         </div>
         <footer th:include="layout :: footer"></footer>
-        <script th:src="@{/js/script.js}"></script>
+        <script th:src="@{/js/scriptPet.js}"></script>
     </body>
 </html>

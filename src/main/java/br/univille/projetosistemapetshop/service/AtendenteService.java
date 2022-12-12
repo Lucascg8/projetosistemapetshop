@@ -1,5 +1,6 @@
 package br.univille.projetosistemapetshop.service;
 import java.util.List;
+
 import br.univille.projetosistemapetshop.entity.Atendente;
 
 public interface AtendenteService {

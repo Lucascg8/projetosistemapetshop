@@ -39,11 +39,9 @@
 
                         <div class="form-group">
                             <label for="cbveterinario">Veterinário:</label>
-                            <select class="form-select" id="cbveterinario"
-                                th:field="${novoServico.veterinario}">
+                            <select class="form-select" id="cbveterinario" th:field="${novoServico.veterinario}">
                                 <option th:each="umVeterinario : ${listaVeterinarios}"
-                                        th:value="${umVeterinario.id}"
-                                        th:text="${umVeterinario.nome}">
+                                        th:value="${umVeterinario.id}" th:text="${umVeterinario.nome}">
                                 </option>
                             </select>
                         </div>
